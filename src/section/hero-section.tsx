@@ -75,10 +75,7 @@ export default function HeroSection() {
           className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
-
-        {/* Video Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/60" />
       </div>
       {/* Grid Background Pattern */}
@@ -94,13 +91,13 @@ export default function HeroSection() {
       />
 
       <motion.div
-        className="relative z-10 mx-auto max-w-[1500px] px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-24 xl:px-20"
+        className="relative z-10 mx-auto max-w-[1500px] px-6 py-20 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-16 lg:py-24 xl:px-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* @ts-expect-error next-line */}
-        <motion.div className="mb-12 sm:mb-16 md:mb-20" variants={itemVariants}>
+        <motion.div className="sm:mb-16 md:mb-20" variants={itemVariants}>
           <p className="text-sm font-light tracking-wider text-white/80 sm:text-base md:text-lg">
             TO BE DECIDED
           </p>
@@ -112,7 +109,7 @@ export default function HeroSection() {
           // @ts-expect-error next-line
           variants={titleVariants}
         >
-          <div className="mb-4 flex flex-col sm:mb-6 sm:flex-row sm:items-end sm:gap-4">
+          <div className="flex flex-col max-md:flex-row max-md:items-end max-md:gap-4 sm:mb-6 sm:flex-row sm:items-end sm:gap-4 md:mb-4">
             <motion.h1
               className="text-4xl leading-none font-black tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]"
               initial={{ opacity: 0, x: -100 }}
@@ -137,7 +134,7 @@ export default function HeroSection() {
             </motion.div>
           </div>
           <motion.h2
-            className="text-6xl leading-none font-black tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]"
+            className="text-5xl leading-none font-black tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem]"
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{

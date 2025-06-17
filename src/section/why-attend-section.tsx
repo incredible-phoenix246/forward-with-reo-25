@@ -152,6 +152,7 @@ export default function WhyAttentSection() {
                 //   borderRadius: '',
                 //   flexShrink: 0,
                 // }}
+                id="why-attend-section-card"
               >
                 {/* Large number */}
                 <motion.div className="relative flex-shrink-0">

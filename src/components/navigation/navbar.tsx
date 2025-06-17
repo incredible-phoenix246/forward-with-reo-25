@@ -13,17 +13,43 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isPastHero, setIsPastHero] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isInWhyAttendSection, setIsInWhyAttendSection] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY
       setIsScrolled(scrollY > 50)
-      const heroSection = document.querySelector('#hero')
-      if (heroSection) {
-        const heroHeight = (heroSection as HTMLElement).offsetHeight
-        setIsPastHero(scrollY > heroHeight - 100)
-      } else {
-        setIsPastHero(scrollY > window.innerHeight - 100)
+
+      const elementsToCheck = ['hero']
+
+      let isAnyElementVisible = false
+
+      for (const elementId of elementsToCheck) {
+        const element = document.getElementById(elementId)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          const elementTop = rect.top + window.scrollY
+          const elementBottom = elementTop + rect.height
+          if (scrollY < elementBottom - 100) {
+            isAnyElementVisible = true
+            break
+          }
+        }
+      }
+
+      setIsPastHero(!isAnyElementVisible)
+
+      const whyAttendSection = document.getElementById(
+        'why-attend-section-card'
+      )
+      if (whyAttendSection) {
+        const rect = whyAttendSection.getBoundingClientRect()
+        const sectionTop = rect.top + window.scrollY
+        const sectionBottom = sectionTop + rect.height
+
+        const isInView =
+          scrollY >= sectionTop - 200 && scrollY <= sectionBottom + 200
+        setIsInWhyAttendSection(isInView)
       }
     }
 
@@ -80,10 +106,14 @@ export default function Navbar() {
             'flex w-full max-w-[1500px] items-center justify-between py-2 transition-all duration-1000 sm:px-[80px]',
             isScrolled &&
               isPastHero &&
+              !isInWhyAttendSection &&
               'mx-auto mt-6 max-w-3xl rounded-full bg-transparent px-8 py-6 shadow-2xl backdrop-blur-sm max-md:mt-4 sm:px-8',
             isScrolled &&
               !isPastHero &&
-              'mx-auto mt-6 max-w-3xl rounded-full bg-white/10 px-8 py-6 backdrop-blur-md max-md:mt-4 sm:px-8'
+              'mx-auto mt-6 max-w-3xl rounded-full bg-white/10 px-8 py-6 backdrop-blur-md max-md:mt-4 sm:px-8',
+            isScrolled &&
+              isInWhyAttendSection &&
+              'mx-auto mt-6 max-w-3xl rounded-full bg-blue-900/20 px-8 py-6 shadow-2xl backdrop-blur-md max-md:mt-4 sm:px-8'
           )}
           initial={{ opacity: 1 }}
           animate={{
@@ -98,7 +128,11 @@ export default function Navbar() {
         >
           <div className="flex items-center space-x-2">
             <BlurImage
-              src={isPastHero ? '/logo.png' : '/logo-white.png'}
+              src={
+                isPastHero && !isInWhyAttendSection
+                  ? '/logo.png'
+                  : '/logo-white.png'
+              }
               alt="NeuroCX"
               width={120}
               height={40}
@@ -114,7 +148,9 @@ export default function Navbar() {
                 onClick={(e) => handleSmoothScroll(e, item.href)}
                 className={cn(
                   'cursor-pointer text-lg font-medium transition-colors duration-500',
-                  isScrolled && isPastHero ? 'text-gray-900' : 'text-white'
+                  isScrolled && isPastHero && !isInWhyAttendSection
+                    ? 'text-gray-900'
+                    : 'text-white'
                 )}
                 whileHover={{ y: -2 }}
                 whileTap={{ y: 0 }}
@@ -128,7 +164,10 @@ export default function Navbar() {
           <div className="flex items-center gap-4 md:hidden">
             <motion.button
               className={cn(
-                'flex items-center justify-center text-gray-900 transition-colors duration-500'
+                'flex items-center justify-center transition-colors duration-500',
+                isScrolled && isPastHero && !isInWhyAttendSection
+                  ? 'text-gray-900 hover:text-blue-600'
+                  : 'text-white hover:text-blue-400'
               )}
               onClick={() => setIsMobileMenuOpen(true)}
               whileTap={{ scale: 0.95 }}
