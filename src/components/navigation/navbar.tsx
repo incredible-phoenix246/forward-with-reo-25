@@ -98,29 +98,12 @@ export default function Navbar() {
         >
           <div className="flex items-center space-x-2">
             <BlurImage
-              src={isPastHero ? '/logo.png' : '/logo.jpg'}
+              src={isPastHero ? '/logo.png' : '/logo-white.png'}
               alt="NeuroCX"
               width={120}
               height={40}
               className="rounded-lg"
             />
-
-            {/* <AnimatePresence mode="wait">
-              {!isScrolled && (
-                <motion.span
-                  key="default"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className={cn(
-                    'text-xl font-semibold text-[#213B4D] transition-colors duration-500'
-                  )}
-                >
-                  Forward25
-                </motion.span>
-              )}
-            </AnimatePresence> */}
           </div>
 
           <nav className="hidden items-center space-x-8 md:flex">
@@ -191,7 +174,6 @@ export default function Navbar() {
                     height={40}
                     className="rounded-lg"
                   />
-                  <span className="text-xl font-semibold">WallPress</span>
                 </div>
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}

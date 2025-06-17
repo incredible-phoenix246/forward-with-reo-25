@@ -62,7 +62,25 @@ export default function HeroSection() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-black" id="hero">
+    <div
+      className="relative min-h-screen overflow-hidden bg-gray-700"
+      id="hero"
+    >
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* Video Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
       {/* Grid Background Pattern */}
       <div
         className="absolute inset-0 opacity-20"
