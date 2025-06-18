@@ -271,11 +271,14 @@ const eventImages = [
 export default function GallerySection() {
   const duplicatedImages = [...eventImages, ...eventImages, ...eventImages]
   return (
-    <section className="flex min-h-screen flex-col bg-black text-white">
+    <section
+      className="flex min-h-screen flex-col bg-black text-white"
+      id="gallery"
+    >
       {/* Content Section */}
-      <div className="flex flex-1 items-center justify-center px-6 py-16 lg:py-24">
+      <div className="font-plus_jaka mx-auto w-full max-w-[1500px] py-16 lg:py-24">
         <div className="max-w-4xl">
-          <h2 className="mb-8 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+          <h2 className="mb-8 text-4xl leading-tight">
             Last year, the FORWARD Conference empowered emerging leaders to
             build, inspire, and transform. From bold ideas to actionable
             strategies, it was all about moving FORWARD together.

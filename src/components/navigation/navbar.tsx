@@ -20,7 +20,7 @@ export default function Navbar() {
       const scrollY = window.scrollY
       setIsScrolled(scrollY > 50)
 
-      const elementsToCheck = ['hero']
+      const elementsToCheck = ['hero', 'gallery']
 
       let isAnyElementVisible = false
 
