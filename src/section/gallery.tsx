@@ -288,7 +288,7 @@ export default function GallerySection() {
             variant="outline"
             className="h-auto border-white bg-white px-6 py-3 font-medium text-black hover:bg-gray-100"
           >
-            EXPLORE LAST YEAR'S EVENT
+            EXPLORE LAST YEAR&apos;S EVENT
             <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </div>
