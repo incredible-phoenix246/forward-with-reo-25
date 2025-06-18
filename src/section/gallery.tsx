@@ -276,7 +276,7 @@ export default function GallerySection() {
       id="gallery"
     >
       {/* Content Section */}
-      <div className="font-plus_jaka mx-auto w-full max-w-[1500px] py-16 lg:py-24">
+      <div className="font-plus_jaka mx-auto w-full max-w-[1500px] py-16 max-md:px-4 lg:py-24">
         <div className="max-w-4xl">
           <h2 className="mb-8 text-4xl leading-tight">
             Last year, the FORWARD Conference empowered emerging leaders to
