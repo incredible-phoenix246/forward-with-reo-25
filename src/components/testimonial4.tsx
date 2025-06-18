@@ -30,7 +30,7 @@ const Testimonial4 = () => {
   ]
 
   return (
-    <section className="mx-auto max-w-[1500px] py-32">
+    <section className="mx-auto max-w-[1500px] py-32 max-md:px-4">
       <div className="container">
         <div className="flex flex-col gap-6">
           <div className="grid grid-cols-1 items-stretch gap-x-0 gap-y-4 lg:grid-cols-3 lg:gap-4">

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { Syne, Plus_Jakarta_Sans } from 'next/font/google'
 import SmoothCursor from '~/components/miscellaneous/cursor'
 import Navbar from '~/components/navigation/navbar'
+import Footer from '~/components/navigation/footer'
 
 const syne = Syne({
   variable: '--font-syne',
@@ -84,6 +85,7 @@ export default function RootLayout({
         <main className="font-syne">
           <Navbar />
           {children}
+          <Footer />
         </main>
         <SmoothCursor />
       </body>
